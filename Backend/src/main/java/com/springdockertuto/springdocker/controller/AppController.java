@@ -11,20 +11,17 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-
+@CrossOrigin
 @RestController
 public class AppController {
 
     @Autowired
     private AppService _appService;
-    
-    @CrossOrigin
     @GetMapping("/getItems")
     public List<AppModel> getItems() {
         return this._appService.getItemList();
     }
     
-    @CrossOrigin
     @PostMapping("/addItem")
     public AppModel addItem(@RequestBody AppModel model) {
         return this._appService.addItem(model);
