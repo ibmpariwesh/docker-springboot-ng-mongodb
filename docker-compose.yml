@@ -2,7 +2,6 @@ version: '3'
 services:
   #************Mongo DB***************
   database_mongo:
-    container_name: mongo_container
     image: mongo:latest
     hostname: asmd_mongo_host
     environment:
@@ -15,8 +14,7 @@ services:
     networks:
       - asmd_net
   #************Backend***************
-  backend_spring:
-    container_name: spring_container
+  backend:
     build:
       context: ./Backend
       dockerfile: Dockerfile
@@ -29,7 +27,6 @@ services:
 
   #************Frontend***************
   frontend_angular:
-    container_name: angular_container
     build:
       context: ./Frontend
       dockerfile: Dockerfile

@@ -2,7 +2,6 @@ version: '3'
 services:
   #************Mongo DB***************
   database_mongo:
-    container_name: mongo_container
     image: mongo:latest
     environment:
       - MONGO_INITDB_ROOT_DATABASE=asmd_mongo_db
@@ -14,8 +13,7 @@ services:
     networks:
       - asmd_net
   #************Backend***************
-  backend_spring:
-    container_name: spring_container
+  backend:
     build:
       context: .
       dockerfile: Dockerfile
