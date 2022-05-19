@@ -2,6 +2,7 @@ version: '3'
 services:
   #************Mongo DB***************
   database_mongo:
+    container_name: mongo_container
     image: mongo:latest
     environment:
       - MONGO_INITDB_ROOT_DATABASE=asmd_mongo_db
@@ -14,6 +15,7 @@ services:
       - asmd_net
   #************Backend***************
   backend:
+    # image: myfirstimage
     build:
       context: .
       dockerfile: Dockerfile
@@ -23,7 +25,6 @@ services:
       - database_mongo
     networks:
       - asmd_net
-      
 networks:
   asmd_net:
     driver: bridge
