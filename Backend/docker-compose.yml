@@ -25,7 +25,6 @@ services:
       - database_mongo
     networks:
       - asmd_net
-      
 networks:
   asmd_net:
     driver: bridge
